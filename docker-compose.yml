@@ -1,0 +1,50 @@
+---
+version: '3.9'
+
+services:  
+  app:
+    build:
+      dockerfile: Dockerfile
+      context: ./desafio-cap     
+    depends_on:
+      - pgadmin
+      - postgres
+      - redis
+  api:
+    build:
+      dockerfile: Dockerfile
+      context: ./desafio-api
+    ports:
+      - "8890:8890"    
+    depends_on:     
+      - redis
+      - app
+  postgres:
+    image: 'postgres:14.5-alpine'
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=luke
+      - POSTGRES_DB=app    
+    ports:
+      - "5434:5432"
+    volumes:
+      - "./data.sql:/docker-entrypoint-initdb.d/data.sql"
+    
+  redis:
+    container_name: redis-desafio
+    image: "redis:3.2.5-alpine"   
+    ports:
+      - "6379:6379"
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "8050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    depends_on:
+      - postgres
+
+
+networks:
+  default:

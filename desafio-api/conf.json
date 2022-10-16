@@ -1,0 +1,9 @@
+{
+ 
+
+ 
+  "messagingURL": "redis-desafio:6379",
+  "messagingDriver":"redis",
+ "port": 8890,
+  "receiveRoute":"api.route"
+}

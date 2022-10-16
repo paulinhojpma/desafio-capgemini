@@ -1,0 +1,11 @@
+{
+ 
+  "DBBizHost": "postgresql://root:luke@desafio-root-postgres-1:5432/app",
+  
+  "databaseDriver": "postgres",
+ 
+  "messagingURL": "redis-desafio:6379",
+  "messagingDriver":"redis",
+ 
+  "receiveRoute":"api.route"
+}
