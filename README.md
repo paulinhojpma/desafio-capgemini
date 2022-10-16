@@ -85,7 +85,7 @@ HTTP/1.1 200 OK
 HTTP/1.1 200 OK
 
  ```json 
-{"count_valid": int, "count_invalid": int: "ratio": float}
+{"count_valid": int, "count_invalid": int, "ratio": float}
 ``` 
  
 
@@ -95,6 +95,6 @@ HTTP/1.1 200 OK
 `Response:`
 
  ```json
-{"count_valid": 40, "count_invalid": 60: "ratio": 0.4}
+{"count_valid": 40, "count_invalid": 60, "ratio": 0.4}
 ```
 
